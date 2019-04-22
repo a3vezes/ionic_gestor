@@ -14,7 +14,12 @@ import { HomePage } from './home.page';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomePage,
+        children: [
+          { path: 'mensal', loadChildren: './home/mensal/mensal.module#MensalPageModule' },
+          { path: 'geral', loadChildren: './home/geral/geral.module#GeralPageModule' },
+          { path: 'ultimos', loadChildren: './home/ultimos/ultimos.module#UltimosPageModule' },
+        ]
       }
     ])
   ],

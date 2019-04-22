@@ -1,5 +1,7 @@
 {
   "name": "Gestor Financeiro",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

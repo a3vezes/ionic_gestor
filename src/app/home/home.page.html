@@ -1,14 +1,26 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Gestor Financeiro
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="geral">
+        <ion-icon name="flash"></ion-icon>
+        <ion-label>Visão Geral</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="mensal">
+        <ion-icon name="apps"></ion-icon>
+        <ion-label>Visão Mensal</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="ultimos">
+        <ion-icon name="send"></ion-icon>
+        <ion-label>Ultimos Gastos</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>
