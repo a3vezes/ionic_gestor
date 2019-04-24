@@ -21,7 +21,7 @@ export class UsuarioService {
       .catch((e) => console.error(e));
   }
 
-  public logar(email: string, senha: string){
+  public logar(email: string, senha: string): Promise<any>{
     return this.dbProvider.getDB()
       .then((db: SQLiteObject) => {
         let sql = 'select * from usuarios where email = ? and senha = ?';

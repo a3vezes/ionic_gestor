@@ -16,9 +16,9 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage,
         children: [
-          { path: 'mensal', loadChildren: './home/mensal/mensal.module#MensalPageModule' },
-          { path: 'geral', loadChildren: './home/geral/geral.module#GeralPageModule' },
-          { path: 'ultimos', loadChildren: './home/ultimos/ultimos.module#UltimosPageModule' },
+          { path: 'mensal', loadChildren: './mensal/mensal.module#MensalPageModule' },
+          { path: 'geral', loadChildren: './geral/geral.module#GeralPageModule' },
+          { path: 'ultimos', loadChildren: './ultimos/ultimos.module#UltimosPageModule' },
         ]
       }
     ])

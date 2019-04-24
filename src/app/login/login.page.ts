@@ -38,8 +38,8 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
-  clicou() {
-    let logar = this.usuarioService.logar(this.formulario.get('email').value, this.formulario.get('senha').value);
+  async clicou() {
+    let  logar = await this.usuarioService.logar(this.formulario.get('email').value, this.formulario.get('senha').value);
     if (logar) {                
           this.router.navigateByUrl('home/geral');
     } else  {
@@ -47,36 +47,25 @@ export class LoginPage implements OnInit {
       
     }
   }
+ 
 
-  // clicou() {
-  //   if (this.formulario.valid && 
-  //       this.formulario.get('email').value == "teste@teste.com" &&
-  //       this.formulario.get('senha').value == "123456") {       
-  //         this.presentToast('Login Efetuado');
-  //         this.router.navigateByUrl('home/geral');
-  //   } else  {
-  //     this.presentToast('Email Ou Senha Incorreto(s)');  
-      
-  //   }
-  // }
-
-  async cadastrar() {
+   async cadastrar() {
     const alert = await this.alertController.create({
-       header: 'Cadastrar-se',
-       inputs: [
-   {name: "login", type:"email", placeholder:"Digite email"},
-   {name: "senha", type: "password", placeholder: "Senha"}
-       ],
-       buttons: [
-   { text: 'Cancelar' }, 
-   { text: 'Cadastrar', handler: (data) => { 
-        console.log('Campo login: ' + data.login);
-        console.log('Campo senha: ' + data.senha);
-       }
-   }
-       ]
+      header: 'Nova Conta',
+      inputs: [
+        {type:"email", placeholder: "Digite um e-mail", name:"login"},
+        {type:"password", placeholder:"Digite sua senha", name:"senha"}
+      ],
+      buttons: [
+        'Cancelar',
+        {text: "Cadastrar", handler: (data) => {
+          this.usuarioService.cadastro(data.login, data.senha);
+          this.presentToast('Conta ' + data.login + ' criada');
+        }}
+      ]
     });
-    alert.present();
- }
+  
+    await alert.present();
+  }
 
 }
